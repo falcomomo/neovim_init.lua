@@ -1,3 +1,24 @@
+local function cwd() 
+    return vim.fn.getcwd()
+end
+
+local function nvic()
+    local navic = require('nvim-navic')
+    return navic.get_location()
+end
+
+local function mark_status()
+    local marks = vim.fn.getmarklist(vim.fn.bufnr "%")
+    local result = {}
+    for _, mark in ipairs(marks) do
+        if mark.mark:match "[a-z]" then
+            table.insert(result, mark.mark)
+        end
+    end
+
+    return table.concat(result, " ")
+end
+
 return function()
     require('lualine').setup({
         options = {
@@ -20,9 +41,9 @@ return function()
         },
         sections = {
             lualine_a = { 'mode' },
-            lualine_b = { 'branch', 'diff', 'diagnostics' },
-            lualine_c = { 'filename' },
-            lualine_x = { 'encoding', 'fileformat', 'filetype' },
+            lualine_b = { cwd, 'branch', 'diff', 'diagnostics' },
+            lualine_c = { {'filename', path=1} },
+            lualine_x = { 'harpoon2', mark_status, 'encoding', 'fileformat', 'filetype' },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
         },

@@ -6,7 +6,7 @@ local ui = require("falcomomo.plugins.ui")
 
 local plugins = { themes, ui, tools, editor }
 
-COLORSCHEME = "dracula"
+COLORSCHEME = "catppuccin"
 
 require("lazy").setup(plugins, {
     dev = {

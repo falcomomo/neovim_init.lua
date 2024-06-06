@@ -1,10 +1,8 @@
- -- Netrw
+-- Netrw
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
--- Cursor
-vim.opt.guicursor = ""
 
 -- Need the line nums and relative linenums
 vim.opt.nu = true
@@ -32,7 +30,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
-vim.opt.guifont = { "Fira Code:h11" }
+vim.opt.guifont = { "FiraCode Nerd Font Mono:h11" }
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
@@ -42,3 +40,13 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+-- Neovide stuff
+if vim.g.neovide then
+    vim.g.neovide_remember_window_size = true
+    vim.g.neovide_cursor_animation_length = 0.12
+    vim.g.neovide_cursor_trail_size = 0.8
+    vim.g.neovide_cursor_vfx_mode = "railgun"
+else
+-- Cursor
+    vim.opt.guicursor = ""
+end

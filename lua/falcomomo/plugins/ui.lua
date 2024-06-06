@@ -25,6 +25,11 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         config = require("ui.treesitter"),
+        dependencies = {
+            {
+                "nvim-treesitter/nvim-treesitter-textobjects"
+            }
+        }
     },
     -- Vim Illuminate
     {
@@ -37,6 +42,7 @@ local plugins = {
         "folke/which-key.nvim",
         config = require("ui.which_key"),
     },
+    -- legendary
     {
         "mrjones2014/legendary.nvim",
         config = require("ui.legendary")
@@ -64,6 +70,26 @@ local plugins = {
         },
         config = require("ui.todo_comments"),
     },
+    -- Neo-Tree
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        }
+    },  
+    {
+        "letieu/harpoon-lualine",
+        dependencies = {
+            {
+                "ThePrimeagen/harpoon",
+                branch = "harpoon2",
+            }
+        },
+    }
 }
 
 return plugins

@@ -1,11 +1,8 @@
 return function()
   vim.opt.list = true
 
-  require("indent_blankline").setup({
-    show_end_of_line = true,
-    show_current_context = true,
-    use_treesitter_scope = true,
-    filetype_exclude = {
+  require("ibl").setup({
+    exclude = { filetypes = {
       "dashboard",
       "lspinfo",
       "packer",
@@ -13,6 +10,7 @@ return function()
       "help",
       "man",
       "",
-    },
+    }
+},
   })
 end

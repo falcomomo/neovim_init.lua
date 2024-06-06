@@ -27,6 +27,8 @@ local tools = {
     -- Harpoon
     {
         "theprimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
         config = require("tools.harpoon")
     },
     {
@@ -38,18 +40,22 @@ local tools = {
             {
                 'neovim/nvim-lspconfig',
                 config = require("tools.lspconfig"),
+                dependencies = {
+                    "Hoffs/omnisharp-extended-lsp.nvim",
+
+                }
             },
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
-                    {
-                        "glepnir/lspsaga.nvim",
-                        config = require("tools.lspsaga"),
-                        event = "LspAttach",
-                        dependencies = {
-                            { "nvim-tree/nvim-web-devicons" },
-                            { "nvim-treesitter/nvim-treesitter" },
-                        },
-                    },
+                    --{
+                        --"glepnir/lspsaga.nvim",
+                        --config = require("tools.lspsaga"),
+                        --event = "LspAttach",
+                        --dependencies = {
+                            --{ "nvim-tree/nvim-web-devicons" },
+                            --{ "nvim-treesitter/nvim-treesitter" },
+                        --},
+                    --},
                     -- LSP signature
                     {
                         "ray-x/lsp_signature.nvim",
@@ -117,6 +123,11 @@ local tools = {
     {
         "mbbill/undotree"
     },
+    -- Outline
+    {
+        "hedyhli/outline.nvim",
+        config = require("tools.outline")
+    },
     -- Nvim DAP
     {
         "mfussenegger/nvim-dap",
@@ -125,7 +136,7 @@ local tools = {
     -- Nvim DAP UI
     {
         "rcarriga/nvim-dap-ui",
-        dependencies = { "mfussenegger/nvim-dap" },
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
         config = require("tools.nvim_dap_ui"),
     },
     -- Peek
@@ -169,7 +180,7 @@ local tools = {
                 workspaces = {
                     {
                         name = "personal",
-                        path = "~/Documents/Personal_Vault",
+                        path = "~/OneDrive - Finbourne Technology Limited/Documents/finbourne",
                     }
                 },
 

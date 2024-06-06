@@ -112,7 +112,7 @@ use("lukas-reineke/indent-blankline.nvim")
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
-  use {"glepnir/lspsaga.nvim",  branch = "main",  requires = {{"nvim-tree/nvim-web-devicons"}, {"nvim-treesitter/nvim-treesitter"}}}
+  --use {"glepnir/lspsaga.nvim",  branch = "main",  requires = {{"nvim-tree/nvim-web-devicons"}, {"nvim-treesitter/nvim-treesitter"}}}
   use("mfussenegger/nvim-dap")
 
   use("folke/zen-mode.nvim")

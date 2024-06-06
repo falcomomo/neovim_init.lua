@@ -19,4 +19,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+vim.g.python3_host_prog = 'C:/Users/SteveFalconer/anaconda3/python.exe'
+vim.g.python_host_prog = 'C:/Users/SteveFalconer/anaconda3/python.exe'
+
 require "falcomomo.core"
