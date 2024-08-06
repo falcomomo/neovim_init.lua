@@ -1,5 +1,19 @@
 return function()
+
+    -- Trouble integration
+    local actions = require("telescope.actions")
+    local open_with_trouble = require("trouble.sources.telescope").open
+
+    -- Use this to add more results without clearing the trouble list
+    local add_to_trouble = require("trouble.sources.telescope").add
+
     require('telescope').setup({
+      defaults = {
+        mappings = {
+          i = { ["<c-t>"] = open_with_trouble },
+          n = { ["<c-t>"] = open_with_trouble },
+        },
+      },
         pickers = {
             current_buffer_fuzzy_find = {
                 winblend = 10,
@@ -10,16 +24,25 @@ return function()
                     height = 15
                 },
             },
+            find_files = { theme = "ivy" },
+            oldfiles = { theme = "ivy" },
+            buffers = { theme = "ivy" },
+            git_files = { theme = "ivy" },
+            help_tags = { theme = "ivy" },
+            keymaps = { theme = "ivy" },
+            man_pages = { theme = "ivy" },
+            commands = { theme = "ivy" },
+            grep_string = { theme = "ivy" },
         },
         commands = {
-            theme = "dropdown",
+            theme = "ivy",
             layout_config = {
                 anchor = "N",
             },
         },
         colorscheme = {
             enable_preview = true,
-            theme = "dropdown",
+            theme = "ivy",
             layout_config = {
                 anchor = "N",
             },
@@ -33,6 +56,7 @@ return function()
                 -- the default case_mode is "smart_case"
             },
             ["file_browser"] = {
+                theme = "ivy",
                 hijack_netrw = true,
                 mappings = {
                     ["i"] = {
@@ -40,13 +64,9 @@ return function()
                     }
                 },
             },
-            ["ui-select"] = {
-                theme = "dropdown"
-            },
-            ["yank_history"] = {
-
-            }
-
+            ["ui-select"] = { theme = "ivy" },
+            ["yank_history"] = { theme = "ivy" },
+            ["project"] = { theme = "ivy" },
         }
     })
     -- To get fzf loaded and working with telescope, you need to call

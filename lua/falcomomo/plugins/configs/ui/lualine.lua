@@ -19,7 +19,21 @@ local function mark_status()
     return table.concat(result, " ")
 end
 
+
 return function()
+
+    local trouble = require("trouble")
+    local symbols = trouble.statusline({
+        mode = "lsp_document_symbols",
+        groups = {},
+        title = false,
+        filter = { range = true },
+        format = "{kind_icon}{symbol.name:Normal}",
+        -- The following line is needed to fix the background color
+        -- Set it to the lualine section you want to use
+        hl_group = "lualine_c_normal",
+    })
+
     require('lualine').setup({
         options = {
             icons_enabled = true,
@@ -41,7 +55,7 @@ return function()
         },
         sections = {
             lualine_a = { 'mode' },
-            lualine_b = { cwd, 'branch', 'diff', 'diagnostics' },
+            lualine_b = { cwd, 'branch', 'diff', 'diagnostics', {symbols.get, cond = symbols.has} },
             lualine_c = { {'filename', path=1} },
             lualine_x = { 'harpoon2', mark_status, 'encoding', 'fileformat', 'filetype' },
             lualine_y = { 'progress' },

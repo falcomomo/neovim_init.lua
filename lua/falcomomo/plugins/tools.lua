@@ -47,15 +47,15 @@ local tools = {
             },
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
-                    --{
-                        --"glepnir/lspsaga.nvim",
-                        --config = require("tools.lspsaga"),
-                        --event = "LspAttach",
-                        --dependencies = {
-                            --{ "nvim-tree/nvim-web-devicons" },
-                            --{ "nvim-treesitter/nvim-treesitter" },
-                        --},
-                    --},
+                    {
+                        "glepnir/lspsaga.nvim",
+                        config = require("tools.lspsaga"),
+                        event = "LspAttach",
+                        dependencies = {
+                            { "nvim-tree/nvim-web-devicons" },
+                            { "nvim-treesitter/nvim-treesitter" },
+                        },
+                    },
                     -- LSP signature
                     {
                         "ray-x/lsp_signature.nvim",
@@ -100,8 +100,9 @@ local tools = {
     -- Trouble
     {
         "folke/trouble.nvim",
+        cmd = "Trouble",
         config = require("tools.trouble"),
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = { "nvim-tree/nvim-web-devicons", "nvim-lualine/lualine.nvim" },
     },
     -- Fugitive
     {

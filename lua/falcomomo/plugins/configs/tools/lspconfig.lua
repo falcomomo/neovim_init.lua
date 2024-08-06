@@ -74,9 +74,9 @@ require('lspconfig').omnisharp.setup({
         on_attach = function(client, bufnr)
         local opts = { buffer = bufnr, remap = false }
 
-        vim.keymap.set("n", "gd", function() require("omnisharp_extended").telescope_lsp_definition({ reuse_win = true }) end, opts )
-        vim.keymap.set("n", "gI", function() require("omnisharp_extended").telescope_lsp_implementation({ reuse_win = true }) end, opts)
-        vim.keymap.set("n", "gr", function() require("omnisharp_extended").telescope_lsp_references() end, opts)
+        vim.keymap.set("n", "gd", function() require("omnisharp_extended").telescope_lsp_definition({ reuse_win = true, theme = "ivy" }) end, opts )
+        vim.keymap.set("n", "gI", function() require("omnisharp_extended").telescope_lsp_implementation({ reuse_win = true, theme = "ivy" }) end, opts)
+        vim.keymap.set("n", "gr", function() require("omnisharp_extended").telescope_lsp_references({ theme = "ivy" }) end, opts)
     end
     }
 )

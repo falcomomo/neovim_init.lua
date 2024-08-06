@@ -20,7 +20,7 @@ vim.keymap.set("n", "<leader>wj", "<C-w><C-j>")
 vim.keymap.set("n", "<leader>wk", "<C-w><C-k>")
 vim.keymap.set("n", "<leader>wl", "<C-w><C-l>")
 vim.keymap.set("n", "<leader>wv", "<C-w><C-v>")
-vim.keymap.set("n", "<leader>wh", "<C-w><C-n>")
+vim.keymap.set("n", "<leader>wn", "<C-w><C-n>")
 vim.keymap.set("n", "<leader>wq", "<C-w><C-q>")
 vim.keymap.set("n", "<leader>wo", "<C-w><C-o>")
 

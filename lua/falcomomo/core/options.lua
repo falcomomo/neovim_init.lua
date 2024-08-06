@@ -8,6 +8,9 @@ vim.g.netrw_winsize = 25
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- TabLine
+vim.opt.showtabline = 0
+
 -- Tabs, lines, wraps
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -50,3 +53,4 @@ else
 -- Cursor
     vim.opt.guicursor = ""
 end
+
