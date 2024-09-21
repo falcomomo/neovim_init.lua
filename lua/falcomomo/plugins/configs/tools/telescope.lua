@@ -13,6 +13,7 @@ return function()
           i = { ["<c-t>"] = open_with_trouble },
           n = { ["<c-t>"] = open_with_trouble },
         },
+        theme = { "ivy" }
       },
         pickers = {
             current_buffer_fuzzy_find = {
@@ -33,6 +34,8 @@ return function()
             man_pages = { theme = "ivy" },
             commands = { theme = "ivy" },
             grep_string = { theme = "ivy" },
+            telescope_lsp_definition = { theme = "ivy" },
+            telescope_lsp_references = { theme = "ivy" }
         },
         commands = {
             theme = "ivy",

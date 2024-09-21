@@ -10,11 +10,11 @@ local tools = {
             "nvim-telescope/telescope-symbols.nvim",
             "nvim-telescope/telescope-project.nvim",
             "nvim-telescope/telescope-dap.nvim",
-    -- Yanky
-    {
-        "gbprod/yanky.nvim",
-        config = require("tools.yanky"),
-    },
+            -- Yanky
+            {
+                "gbprod/yanky.nvim",
+                config = require("tools.yanky"),
+            },
 
             --"nvim-telescope/telescope-yank-history.nvim"
         },
@@ -36,7 +36,7 @@ local tools = {
         branch = 'v2.x',
         config = require("tools.lspzero"),
         dependencies = {
-                    -- LSP Support
+            -- LSP Support
             {
                 'neovim/nvim-lspconfig',
                 config = require("tools.lspconfig"),
@@ -47,43 +47,43 @@ local tools = {
             },
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
-                    {
-                        "glepnir/lspsaga.nvim",
-                        config = require("tools.lspsaga"),
-                        event = "LspAttach",
-                        dependencies = {
-                            { "nvim-tree/nvim-web-devicons" },
-                            { "nvim-treesitter/nvim-treesitter" },
-                        },
-                    },
-                    -- LSP signature
-                    {
-                        "ray-x/lsp_signature.nvim",
-                        config = require("tools.lsp_signature"),
-                    },
-                    -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-buffer'},
-		  {'hrsh7th/cmp-path'},
-		  {'saadparwaiz1/cmp_luasnip'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'hrsh7th/cmp-nvim-lua'},
+            {
+                "glepnir/lspsaga.nvim",
+                config = require("tools.lspsaga"),
+                event = "LspAttach",
+                dependencies = {
+                    { "nvim-tree/nvim-web-devicons" },
+                    { "nvim-treesitter/nvim-treesitter" },
+                },
+            },
+            -- LSP signature
+            {
+                "ray-x/lsp_signature.nvim",
+                config = require("tools.lsp_signature"),
+            },
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
 
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-		  {'rafamadriz/friendly-snippets'},
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
         }
     },
-                    -- Navbuddy
-                    {
-                        "SmiteshP/nvim-navbuddy",
-                        config = require("tools.navbuddy"),
-                        dependencies = {
-                            "SmiteshP/nvim-navic",
-                            "MunifTanjim/nui.nvim",
-                        },
-                    },
-     --Neodev
+    -- Navbuddy
+    {
+        "SmiteshP/nvim-navbuddy",
+        config = require("tools.navbuddy"),
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim",
+        },
+    },
+    --Neodev
     {
         "folke/neodev.nvim",
         config = require("tools.neodev"),
@@ -116,13 +116,29 @@ local tools = {
             "nvim-lua/plenary.nvim",
         },
     },
+    -- Neogit - as alternative to lazygit, and a magit clone
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",         -- required
+            "sindrets/diffview.nvim",        -- optional - Diff integration
+
+            -- Only one of these is needed.
+            "nvim-telescope/telescope.nvim", -- optional
+            "ibhagwan/fzf-lua",              -- optional
+            "echasnovski/mini.pick",         -- optional
+        },
+        config = true
+    },
     -- Merginal
     {
         "idanarye/vim-merginal"
     },
     -- Undo-tree
     {
-        "mbbill/undotree"
+        "jiaoshijie/undotree",
+        config = require("tools.undotree"),
+        dependencies = "nvim-lua/plenary.nvim",
     },
     -- Outline
     {
@@ -161,33 +177,33 @@ local tools = {
     },
     {
         "epwalsh/obsidian.nvim",
-        version = "*",  -- recommended, use latest release instead of latest commit
+        version = "*", -- recommended, use latest release instead of latest commit
         lazy = true,
         ft = "markdown",
         -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
         -- event = {
-            --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-            --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-            --   "BufReadPre path/to/my-vault/**.md",
-            --   "BufNewFile path/to/my-vault/**.md",
-            -- },
-            dependencies = {
-                -- Required.
-                "nvim-lua/plenary.nvim",
+        --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+        --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+        --   "BufReadPre path/to/my-vault/**.md",
+        --   "BufNewFile path/to/my-vault/**.md",
+        -- },
+        dependencies = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
 
-                -- see below for full list of optional dependencies 👇
+            -- see below for full list of optional dependencies 👇
+        },
+        opts = {
+            workspaces = {
+                {
+                    name = "personal",
+                    path = "~/OneDrive - Finbourne Technology Limited/Documents/finbourne",
+                }
             },
-            opts = {
-                workspaces = {
-                    {
-                        name = "personal",
-                        path = "~/OneDrive - Finbourne Technology Limited/Documents/finbourne",
-                    }
-                },
 
-                -- see below for full list of options 👇
-            },
-        }
+            -- see below for full list of options 👇
+        },
+    }
 
 }
 

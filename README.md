@@ -114,6 +114,14 @@ specific config within the config subfolders if the package requires anything.
 | Keybind     | Description      |
 | ----------- | ---------------- |
 | \<leader\>u | Undo tree toggle |
+| j           | Move next        |
+| k           | Move prev        |
+| gj          | Move to parent   |
+| J           | Move change next |
+| K           | Move change prev |
+| <cr>        | Action enter     |
+| p           | Enter diff buff  |
+
 
 #### Yanky
 

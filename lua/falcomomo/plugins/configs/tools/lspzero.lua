@@ -7,7 +7,8 @@ return function()
         'pyright',
         'ruff_lsp',
         'lua_ls',
-        'omnisharp'
+        'omnisharp',
+        'jsonls'
     })
 
 
